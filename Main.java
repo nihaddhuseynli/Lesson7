@@ -26,7 +26,11 @@ public class Main {
         System.out.println("Deleting a child from the family:");
         boolean deleted = family.deleteChild(child1);
         System.out.println("Child deleted: " + deleted);
-
+        for (int i = 0; i < 10000000; i++) {
+            if (family.deleteChild(child1)) {
+                System.gc();
+            }
+        }
         System.out.println("Updated Family Information:");
         System.out.println(family);
 
